@@ -13,6 +13,15 @@ def search_anime(q: str):
 def search_anime():
     return anime_service.get_latest_animes()
 
+
+@router.get("/health")
+def health_check():
+    return {"status": "ok", "message": "Anime service is healthy!"}
+
+@router.post("/filter")
+def filter_animes(filters: dict = Body(...)):
+    return anime_service.filter_animes(filters)
+
 @router.get("/all")
 def search_anime(page: int):
     return anime_service.getAll(page)
@@ -24,11 +33,3 @@ def get_anime_info(anime_id: str) -> Any:
 @router.get("/links/{anime_id}/{episode}")
 def get_links(anime_id: str, episode: int):
     return anime_service.get_video_servers_simplified(anime_id, episode)
-
-@router.get("/health")
-def health_check():
-    return {"status": "ok", "message": "Anime service is healthy!"}
-
-@router.post("/filter")
-def filter_animes(filters: dict = Body(...)):
-    return anime_service.filter_animes(filters)
