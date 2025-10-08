@@ -4,3 +4,4 @@ supabase
 cloudscraper 
 beautifulsoup4 
 python-dotenv
+animeflvV2
