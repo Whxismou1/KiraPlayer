@@ -1,0 +1,6 @@
+fastapi
+uvicorn 
+supabase 
+cloudscraper 
+beautifulsoup4 
+python-dotenv
