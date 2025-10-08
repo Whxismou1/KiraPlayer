@@ -5,7 +5,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -46,7 +46,8 @@ export const AuthProvider = ({ children }) => {
     const { data, error } = await supabase
       .from("profiles")
       .select("username, created_at")
-      .eq("id", userId);
+      .eq("id", userId)
+      .single();
 
     if (error) {
       console.warn("⚠️ Error obteniendo perfil:", error.message);
@@ -62,6 +63,7 @@ export const AuthProvider = ({ children }) => {
       email,
       password,
     });
+
     if (error) throw error;
 
     setUser(data.user);

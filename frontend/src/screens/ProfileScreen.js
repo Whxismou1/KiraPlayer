@@ -60,7 +60,7 @@ export default function ProfileScreen({ navigation }) {
             <Ionicons name="person" size={40} color={colors.text} />
           </View>
           <View style={styles.userInfo}>
-            <Text style={styles.username}>{profile[0]?.username}</Text>
+            <Text style={styles.username}>{profile?.username || ""}</Text>
             <Text style={styles.email}>{user?.email}</Text>
           </View>
         </View>
@@ -87,7 +87,7 @@ export default function ProfileScreen({ navigation }) {
           </View>
         </View>
         <View style={styles.actionsCard}>
-          <TouchableOpacity style={styles.actionItem}>
+          {/* <TouchableOpacity style={styles.actionItem}>
             <Ionicons name="create-outline" size={24} color={colors.text} />
             <Text style={styles.actionText}>Editar perfil</Text>
             <Ionicons
@@ -95,7 +95,7 @@ export default function ProfileScreen({ navigation }) {
               size={20}
               color={colors.textTertiary}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <View style={styles.actionDivider} />
 
